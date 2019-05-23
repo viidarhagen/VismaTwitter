@@ -14,6 +14,7 @@
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             DocumentDBRepository<VismaTwitter.Models.Item>.Initialize();
+
         }
     }
 }

@@ -1,0 +1,43 @@
+﻿@model VismaTwitter.Models.Item
+
+<h2>View To-Do Item Details</h2>
+
+<div>
+    <h4>Item</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KeyPhrases)
+        </dd>
+        <dd>
+            @Html.DisplayFor(model => model.Language)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sentiment)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Text)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TranslatedText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TweetedBy)
+        </dd>
+        <dd>
+            @Html.DisplayFor(model => model.Username)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id, category=Model.Text }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

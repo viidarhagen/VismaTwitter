@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="33px" viewBox="0 0 22 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>tab-active-side2-bk</title>
+    <desc>Created with Sketch.</desc>
+    <g id="tab-active-side2-bk" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M2.19999695,1 C4.8500061,1 6.69999695,2 7.5,5 C7.99225201,6.845938 12.9999847,25.3000031 13.6499939,28 C14.3000031,30.6999969 15.8999939,32 19,32 C18.9240004,32 19.5906671,32.3333333 21,33 L-9.23705556e-14,33 L-9.23705556e-14,1 C1.28413232,1 2.01746464,1 2.19999695,1 Z" id="White" fill="#FFFFFF"></path>
+        <path d="M2,3.94996535e-15 C5.34999847,3.94996535e-15 7.64999962,0.799999237 8.45000076,4 C9.25000191,7.20000076 13.8492885,24.2308053 14.6000004,26.9000015 C15.5,30.0999985 16.6000004,31 20,31 L22,31 L22,33 L20,33 C14,33 13.75,31.8000031 12.25,27.0999985 C11.3604037,24.0268524 6.70000076,6.45000458 6.14999962,4.65000153 C5.59999847,2.84999847 4.34999847,2 2,2 L0,2 L0,0 L2,3.94996535e-15 Z" id="Green-Line" fill="#599900"></path>
+    </g>
+</svg>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="33px" viewBox="0 0 22 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>tab-hover-side-bk</title>
+    <desc>Created with Sketch.</desc>
+    <g id="tab-hover-side-bk" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M19.8000031,2 C17.1499939,2 15.3000031,3 14.5,6 C14.007748,7.845938 9.00001526,26.3000031 8.3500061,29 C7.69999695,31.6999969 6.1000061,33 3,33 L22,33 L22,2 L19.8000031,2 Z M19.8000031,1 L23,1 L23,34 L3,34 L3,32 C5.59189441,32 6.82571934,31.0590966 7.37778328,28.7659428 C7.65923928,27.5968357 8.7288371,23.5712855 10.4080627,17.3303027 L10.4441109,17.1963347 C11.2967275,14.0278838 13.4509097,6.05304371 13.5337653,5.74233643 C14.407384,2.46627895 16.5041611,1 19.8000031,1 Z" id="Tab" fill-opacity="0.08" fill="#005180" fill-rule="nonzero"></path>
+        <path d="M19.8000031,2 C20.0250578,2 20.7583901,2 22,2 L22,33 C9.65698431,33 3.32365098,33 3,33 C6.1000061,33 7.69999695,31.6999969 8.3500061,29 C9.00001526,26.3000031 14.007748,7.845938 14.5,6 C15.3000031,3 17.1499939,2 19.8000031,2 Z" id="Tab" fill="#D9F0FF"></path>
+        <rect id="Green" fill="#599900" x="0" y="31" width="22" height="2"></rect>
+    </g>
+</svg>

@@ -1,0 +1,58 @@
+﻿
+@model IEnumerable<VismaTwitter.Models.Item>
+
+@{
+    /**/
+
+    ViewBag.Title = "List of To-Do Items";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    string orignalText = "";
+    string translatedText = "";
+}
+&nbsp;
+<table style="width:90%;" align="center" border="0">
+    <tr>
+        <td>
+            @foreach (var item in Model)
+
+            {
+            <div class="panel panel-default" style="width:90%;">
+                @{orignalText = FindLink.Find(item.Text);
+                  translatedText = FindLink.Find(item.TranslatedText);
+                }
+
+                <div class="panel-heading" style="font-weight:600;">@Html.Raw(orignalText.ToString())</div>
+                <div class="panel-body">
+                    <table border="0">
+                        <tr>
+                            <td style="white-space: nowrap;font-weight:bold;vertical-align:top;">Translated Text:</td>
+                            <TD>@Html.Raw(translatedText.ToString())</TD>
+                        </tr>
+                        <tr>
+                            <td style="white-space: nowrap;font-weight:bold;vertical-align:top;">Tweeted by:</td>
+                            <td>@Html.DisplayFor(modelItem => item.TweetedBy)</td>
+                        </tr>
+                        <tr>
+                            <td style="white-space: nowrap;font-weight:bold;vertical-align:top;">Sentiment:</td>
+                            <td>@Html.DisplayFor(modelItem => item.Sentiment)</td>
+                        </tr>
+                        <tr>
+                            <td style="white-space: nowrap;font-weight:bold;vertical-align:top;">Key Phrases:</td>
+                            <TD>@Html.DisplayFor(modelItem => item.KeyPhrases)</TD>
+                        </tr>
+                        <tr>
+                            <td style="white-space: nowrap;font-weight:bold;vertical-align:top;">Created:</td>
+                            <TD>@Html.DisplayFor(modelItem => item.CreatedAt)</TD>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <p></p>
+            }
+
+
+        </td>
+    </tr>
+</table>
+

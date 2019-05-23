@@ -1,0 +1,660 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.7.9\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props" Condition="Exists('..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.7.9\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{32FF143F-51B5-46F1-9D1F-038F12947B1C}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>todo</RootNamespace>
+    <AssemblyName>todo</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+    <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
+    <DockerLaunchUrl>http://{ServiceIPAddress}</DockerLaunchUrl>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>0</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.2-beta1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.6.1.2-beta1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Documents.Client, Version=1.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.DocumentDB.1.6.1\lib\net45\Microsoft.Azure.Documents.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.2\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.2\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.2\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ItemController.cs" />
+    <Compile Include="DocumentDBRepository.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="LinkFinder.cs" />
+    <Compile Include="Models\Context.cs" />
+    <Compile Include="Models\Item.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="nc3-3.10.0\css\bootstrap.min.css" />
+    <Content Include="nc3-3.10.0\css\nc.min.css" />
+    <Content Include="nc3-3.10.0\img\arrow-large.svg" />
+    <Content Include="nc3-3.10.0\img\arrow-medium.svg" />
+    <Content Include="nc3-3.10.0\img\arrow-side-large.svg" />
+    <Content Include="nc3-3.10.0\img\arrow-side-medium.svg" />
+    <Content Include="nc3-3.10.0\img\arrow-side-small.svg" />
+    <Content Include="nc3-3.10.0\img\arrow-small.svg" />
+    <Content Include="nc3-3.10.0\img\brand-icons\brand-icon-1.png" />
+    <Content Include="nc3-3.10.0\img\brand-icons\brand-icon-2.png" />
+    <Content Include="nc3-3.10.0\img\brand-icons\brand-icon-3.png" />
+    <Content Include="nc3-3.10.0\img\brand-icons\brand-icon-4.png" />
+    <Content Include="nc3-3.10.0\img\brand-icons\brand-icon-5.png" />
+    <Content Include="nc3-3.10.0\img\close-icon.svg" />
+    <Content Include="nc3-3.10.0\img\directional-buttons\left-arrows-default.svg" />
+    <Content Include="nc3-3.10.0\img\directional-buttons\left-arrows-ends-default.svg" />
+    <Content Include="nc3-3.10.0\img\directional-buttons\left-arrows-ends-primary.svg" />
+    <Content Include="nc3-3.10.0\img\directional-buttons\left-arrows-primary.svg" />
+    <Content Include="nc3-3.10.0\img\directional-buttons\right-arrows-default.svg" />
+    <Content Include="nc3-3.10.0\img\directional-buttons\right-arrows-ends-default.svg" />
+    <Content Include="nc3-3.10.0\img\directional-buttons\right-arrows-ends-primary.svg" />
+    <Content Include="nc3-3.10.0\img\directional-buttons\right-arrows-primary.svg" />
+    <Content Include="nc3-3.10.0\img\error-pages\error-access-denied%401x.png" />
+    <Content Include="nc3-3.10.0\img\error-pages\error-access-denied%402x.png" />
+    <Content Include="nc3-3.10.0\img\error-pages\error-access-denied.svg" />
+    <Content Include="nc3-3.10.0\img\error-pages\error-maintenance%401x.png" />
+    <Content Include="nc3-3.10.0\img\error-pages\error-maintenance%402x.png" />
+    <Content Include="nc3-3.10.0\img\error-pages\error-maintenance.svg" />
+    <Content Include="nc3-3.10.0\img\error-pages\error-page-not-found%401x.png" />
+    <Content Include="nc3-3.10.0\img\error-pages\error-page-not-found%402x.png" />
+    <Content Include="nc3-3.10.0\img\error-pages\error-page-not-found.svg" />
+    <Content Include="nc3-3.10.0\img\error-pages\error-server-down%401x.png" />
+    <Content Include="nc3-3.10.0\img\error-pages\error-server-down%402x.png" />
+    <Content Include="nc3-3.10.0\img\error-pages\error-server-down.svg" />
+    <Content Include="nc3-3.10.0\img\error-pages\error-server-error%401x.png" />
+    <Content Include="nc3-3.10.0\img\error-pages\error-server-error%402x.png" />
+    <Content Include="nc3-3.10.0\img\error-pages\error-server-error.svg" />
+    <Content Include="nc3-3.10.0\img\favicon.ico" />
+    <Content Include="nc3-3.10.0\img\favicons\android-chrome-192x192.png" />
+    <Content Include="nc3-3.10.0\img\favicons\android-chrome-512x512.png" />
+    <Content Include="nc3-3.10.0\img\favicons\android-chrome-96x96.png" />
+    <Content Include="nc3-3.10.0\img\favicons\apple-touch-icon-120x120.png" />
+    <Content Include="nc3-3.10.0\img\favicons\apple-touch-icon-152x152.png" />
+    <Content Include="nc3-3.10.0\img\favicons\apple-touch-icon-167x167.png" />
+    <Content Include="nc3-3.10.0\img\favicons\apple-touch-icon-76x76.png" />
+    <Content Include="nc3-3.10.0\img\favicons\apple-touch-icon.png" />
+    <Content Include="nc3-3.10.0\img\favicons\browserconfig.xml" />
+    <Content Include="nc3-3.10.0\img\favicons\favicon-16x16.png" />
+    <Content Include="nc3-3.10.0\img\favicons\favicon-32x32.png" />
+    <Content Include="nc3-3.10.0\img\favicons\favicon.ico" />
+    <Content Include="nc3-3.10.0\img\favicons\mstile-144x144.png" />
+    <Content Include="nc3-3.10.0\img\favicons\mstile-150x150.png" />
+    <Content Include="nc3-3.10.0\img\favicons\mstile-310x150.png" />
+    <Content Include="nc3-3.10.0\img\favicons\mstile-310x310.png" />
+    <Content Include="nc3-3.10.0\img\favicons\mstile-70x70.png" />
+    <Content Include="nc3-3.10.0\img\favicons\safari-pinned-tab.svg" />
+    <Content Include="nc3-3.10.0\img\hide-nav.png" />
+    <Content Include="nc3-3.10.0\img\login_imgs\check-mark.png" />
+    <Content Include="nc3-3.10.0\img\login_imgs\flags.png" />
+    <Content Include="nc3-3.10.0\img\login_imgs\login-new-bk.jpg" />
+    <Content Include="nc3-3.10.0\img\pager-carets.svg" />
+    <Content Include="nc3-3.10.0\img\pager-img.png" />
+    <Content Include="nc3-3.10.0\img\pagination-carets.png" />
+    <Content Include="nc3-3.10.0\img\pagination-carets.svg" />
+    <Content Include="nc3-3.10.0\img\search_large.svg" />
+    <Content Include="nc3-3.10.0\img\search_small.svg" />
+    <Content Include="nc3-3.10.0\img\spinners\spinner_16x16_dark.gif" />
+    <Content Include="nc3-3.10.0\img\spinners\spinner_16x16_darkblue.gif" />
+    <Content Include="nc3-3.10.0\img\spinners\spinner_16x16_gray.gif" />
+    <Content Include="nc3-3.10.0\img\spinners\spinner_16x16_light.gif" />
+    <Content Include="nc3-3.10.0\img\spinners\spinner_16x16_lightbkg.gif" />
+    <Content Include="nc3-3.10.0\img\spinners\spinner_24x24_dark.gif" />
+    <Content Include="nc3-3.10.0\img\spinners\spinner_24x24_darkblue.gif" />
+    <Content Include="nc3-3.10.0\img\spinners\spinner_24x24_gray.gif" />
+    <Content Include="nc3-3.10.0\img\spinners\spinner_24x24_light.gif" />
+    <Content Include="nc3-3.10.0\img\spinners\spinner_24x24_lightbkg.gif" />
+    <Content Include="nc3-3.10.0\img\spinners\spinner_32x32_dark.gif" />
+    <Content Include="nc3-3.10.0\img\spinners\spinner_32x32_darkblue.gif" />
+    <Content Include="nc3-3.10.0\img\spinners\spinner_32x32_gray.gif" />
+    <Content Include="nc3-3.10.0\img\spinners\spinner_32x32_light.gif" />
+    <Content Include="nc3-3.10.0\img\spinners\spinner_32x32_lightbkg.gif" />
+    <Content Include="nc3-3.10.0\img\spinners\spinner_64x64.svg" />
+    <Content Include="nc3-3.10.0\img\spinners\spinner_64x64_dark.gif" />
+    <Content Include="nc3-3.10.0\img\spinners\spinner_64x64_dark.svg" />
+    <Content Include="nc3-3.10.0\img\spinners\spinner_64x64_darkblue.gif" />
+    <Content Include="nc3-3.10.0\img\spinners\spinner_64x64_gray.gif" />
+    <Content Include="nc3-3.10.0\img\spinners\spinner_64x64_light.gif" />
+    <Content Include="nc3-3.10.0\img\tabs\more-tabs-btn.svg" />
+    <Content Include="nc3-3.10.0\img\tabs\tab-active-middle-bk.svg" />
+    <Content Include="nc3-3.10.0\img\tabs\tab-active-side-bk.svg" />
+    <Content Include="nc3-3.10.0\img\tabs\tab-active-side2-bk.svg" />
+    <Content Include="nc3-3.10.0\img\tabs\tab-disabled-middle-bk.svg" />
+    <Content Include="nc3-3.10.0\img\tabs\tab-disabled-side-bk.svg" />
+    <Content Include="nc3-3.10.0\img\tabs\tab-disabled-side2-bk.svg" />
+    <Content Include="nc3-3.10.0\img\tabs\tab-focus-middle-bk.svg" />
+    <Content Include="nc3-3.10.0\img\tabs\tab-focus-selected-middle-bk.svg" />
+    <Content Include="nc3-3.10.0\img\tabs\tab-focus-selected-side-bk.svg" />
+    <Content Include="nc3-3.10.0\img\tabs\tab-focus-selected-side2-bk.svg" />
+    <Content Include="nc3-3.10.0\img\tabs\tab-focus-side-bk.svg" />
+    <Content Include="nc3-3.10.0\img\tabs\tab-focus-side2-bk.svg" />
+    <Content Include="nc3-3.10.0\img\tabs\tab-hover-middle-bk.svg" />
+    <Content Include="nc3-3.10.0\img\tabs\tab-hover-side-bk.svg" />
+    <Content Include="nc3-3.10.0\img\tabs\tab-hover-side2-bk.svg" />
+    <Content Include="nc3-3.10.0\img\tabs\tab-middle-bk.svg" />
+    <Content Include="nc3-3.10.0\img\tabs\tab-pressed-middle-bk.svg" />
+    <Content Include="nc3-3.10.0\img\tabs\tab-pressed-side-bk.svg" />
+    <Content Include="nc3-3.10.0\img\tabs\tab-pressed-side2-bk.svg" />
+    <Content Include="nc3-3.10.0\img\tabs\tab-side-bk.svg" />
+    <Content Include="nc3-3.10.0\img\tabs\tab-side2-bk.svg" />
+    <Content Include="nc3-3.10.0\img\toggles.svg" />
+    <Content Include="nc3-3.10.0\img\visma-logo.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\16_add.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\16_add2.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\16_arrow_down.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\16_arrow_left.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\16_arrow_right.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\16_arrow_up.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\16_cancel.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\16_collapse.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\16_down.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\16_expand.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\16_first.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\16_forward.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\16_last.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\16_left.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\16_menu.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\16_ok.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\16_other.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\16_pause.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\16_play.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\16_remove.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\16_rewind.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\16_right.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\16_up.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\24_add.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\24_add2.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\24_arrow_down.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\24_arrow_left.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\24_arrow_right.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\24_arrow_up.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\24_cancel-grey.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\24_cancel.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\24_collapse.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\24_down.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\24_expand.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\24_first.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\24_forward.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\24_last.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\24_left.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\24_menu.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\24_ok.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\24_other.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\24_pause.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\24_play.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\24_remove.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\24_rewind.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\24_right.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\action-icons\24_up.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\informative-filled-icons\16_informative_icons.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\informative-filled-icons\24_informative_icons.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\informative-filled-icons\50_informative_icons.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\interface-controls\autocomplete.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\interface-controls\datepicker.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\interface-controls\multiselection.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\social-media\24_socialmedia_facebook.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\social-media\24_socialmedia_flickr.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\social-media\24_socialmedia_google.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\social-media\24_socialmedia_linkedin.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\social-media\24_socialmedia_pinterest.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\social-media\24_socialmedia_skype.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\social-media\24_socialmedia_tumblr.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\social-media\24_socialmedia_twitter.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\social-media\24_socialmedia_vimeo.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\social-media\24_socialmedia_youtube.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\top_menu\menu_calendar.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\top_menu\menu_document_production.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\top_menu\menu_favorites.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\top_menu\menu_help.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\top_menu\menu_home.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\top_menu\menu_info.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\top_menu\menu_library.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\top_menu\menu_location.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\top_menu\menu_logout.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\top_menu\menu_message.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\top_menu\menu_phone.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\top_menu\menu_reminder.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\top_menu\menu_search.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\top_menu\menu_settings.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\top_menu\menu_shopping_cart.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\top_menu\menu_tool.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\top_menu\menu_user.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\top_menu\menu_user_settings.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_add_comment.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_alarm.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_attach.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_briefcase.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_changelog.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_comment.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_copy.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_cut.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_delete.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_dislike.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_download.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_edit.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_email.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_employee.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_excel.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_export.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_favourite.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_filter.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_flag.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_graphs.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_home.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_information.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_like.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_lock.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_locked.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_money.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_new.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_note.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_open.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_paste.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_pdf.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_phone.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_powerpoint.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_preview.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_print.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_redo.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_refresh.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_reminder.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_remove_signalisation_bell.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_report.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_save.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_search.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_signalisation_bell.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_summarize.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_time.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_undo.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_unlock.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_unlocked.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_unread_comment.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_upload.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_user.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_users.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_web.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_word.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_zoom_in.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\16_zoom_out.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_add_comment.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_add_user.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_agreement.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_alarm.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_alert.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_announcement.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_archive_document.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_attach.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_breadcrumb_folder.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_break.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_briefcase.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_changelog.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_change_owner.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_change_with.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_coffee_break.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_comment.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_comment_chat.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_comment_community.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_comment_web_reply.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_contract.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_copy.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_cut.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_database.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_date_picker.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_delete.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_detach.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_dislike.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_document_info.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_download.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_Drag.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_edit.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_education.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_email.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_employee.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_encrypted_pdf.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_enter_full_screen.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_evaluate.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_excel.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_exclude.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_exit_full_screen.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_export.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_favourite.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_filter.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_filter_column.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_flag.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_folder_building.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_graph.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_graphs.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_help.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_home.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_hourglass.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_image_document.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_jira.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_like.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_link.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_list_view.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_location.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_lock.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_locked.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_logon_failed.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_lunch.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_money.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_new.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_note.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_note_blank.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_note_filled.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_office_building.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_open.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_panel.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_paste.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_payroll_calculations.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_pdf.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_phone.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_platform_cloud.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_platform_mobile.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_powerpoint.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_preview.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_price.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_print.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_redo.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_refresh.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_reminder.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_replace.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_report.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_report_blue.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_rotate_ccw.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_rotate_cw.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_save.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_search.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_secret_document.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_send.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_sending_failed.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_shared_with_me.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_sort_list.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_sound.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_storage.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_text_document.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_tile_view.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_time.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_undifined_document.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_undo.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_unlock.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_unlocked.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_unread_comment.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_upload.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_user.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_users.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_user_folder.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_user_list_1.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_user_list_2.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_user_placeholder.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_video.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_web.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_word.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_xml.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_xml_document.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_zoom_in.svg" />
+    <Content Include="nc3-3.10.0\img\vismaicons\worksurface\24_zoom_out.svg" />
+    <Content Include="nc3-3.10.0\img\wizard\wizard-after-backgrounds.svg" />
+    <Content Include="nc3-3.10.0\img\wizard\wizard-before-backgrounds.svg" />
+    <Content Include="nc3-3.10.0\img\wizard\wizard-icons.png" />
+    <Content Include="nc3-3.10.0\img\wizard\wizard-inner-backgrounds.svg" />
+    <Content Include="nc3-3.10.0\img\wizard\wizard-left-end-backgrounds.svg" />
+    <Content Include="nc3-3.10.0\img\wizard\wizard-right-end-backgrounds.svg" />
+    <Content Include="nc3-3.10.0\js\bootstrap-tabdrop.js" />
+    <Content Include="nc3-3.10.0\js\bootstrap.js" />
+    <Content Include="nc3-3.10.0\js\hideVertMenu.js" />
+    <Content Include="nc3-3.10.0\js\jquery.js" />
+    <Content Include="nc3-3.10.0\js\visma-additional.js" />
+    <Content Include="nc3-3.10.0\README.html" />
+    <Content Include="nc3-3.10.0\start-here.html" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="nc3-3.10.0\fonts\PFBeauSansPro-Light.woff" />
+    <Content Include="nc3-3.10.0\fonts\PFBeauSansPro-Light.woff2" />
+    <Content Include="nc3-3.10.0\fonts\PFBeauSansPro-Regular.woff" />
+    <Content Include="nc3-3.10.0\fonts\PFBeauSansPro-Regular.woff2" />
+    <Content Include="nc3-3.10.0\fonts\PFBeauSansPro-SemiBold.woff" />
+    <Content Include="nc3-3.10.0\fonts\PFBeauSansPro-SemiBold.woff2" />
+    <Content Include="nc3-3.10.0\fonts\PFBeauSansPro-Thin.woff" />
+    <Content Include="nc3-3.10.0\fonts\PFBeauSansPro-Thin.woff2" />
+    <Content Include="nc3-3.10.0\fonts\PFBeauSansPro-XThin.woff" />
+    <Content Include="nc3-3.10.0\fonts\PFBeauSansPro-XThin.woff2" />
+    <Content Include="nc3-3.10.0\fonts\subset-OpenSans-Bold.woff" />
+    <Content Include="nc3-3.10.0\fonts\subset-OpenSans-Bold.woff2" />
+    <Content Include="nc3-3.10.0\fonts\subset-OpenSans-BoldItalic.woff" />
+    <Content Include="nc3-3.10.0\fonts\subset-OpenSans-BoldItalic.woff2" />
+    <Content Include="nc3-3.10.0\fonts\subset-OpenSans-Extrabold.woff" />
+    <Content Include="nc3-3.10.0\fonts\subset-OpenSans-Extrabold.woff2" />
+    <Content Include="nc3-3.10.0\fonts\subset-OpenSans-ExtraboldItalic.woff" />
+    <Content Include="nc3-3.10.0\fonts\subset-OpenSans-ExtraboldItalic.woff2" />
+    <Content Include="nc3-3.10.0\fonts\subset-OpenSans-Italic.woff" />
+    <Content Include="nc3-3.10.0\fonts\subset-OpenSans-Italic.woff2" />
+    <Content Include="nc3-3.10.0\fonts\subset-OpenSans-Light.woff" />
+    <Content Include="nc3-3.10.0\fonts\subset-OpenSans-Light.woff2" />
+    <Content Include="nc3-3.10.0\fonts\subset-OpenSans-Semibold.woff" />
+    <Content Include="nc3-3.10.0\fonts\subset-OpenSans-Semibold.woff2" />
+    <Content Include="nc3-3.10.0\fonts\subset-OpenSans-SemiboldItalic.woff" />
+    <Content Include="nc3-3.10.0\fonts\subset-OpenSans-SemiboldItalic.woff2" />
+    <Content Include="nc3-3.10.0\fonts\subset-OpenSans.woff" />
+    <Content Include="nc3-3.10.0\fonts\subset-OpenSans.woff2" />
+    <Content Include="nc3-3.10.0\fonts\subset-OpenSansLight-Italic.woff" />
+    <Content Include="nc3-3.10.0\fonts\subset-OpenSansLight-Italic.woff2" />
+    <Content Include="nc3-3.10.0\img\favicons\manifest.json" />
+    <Content Include="nc3-3.10.0\LICENSE" />
+    <Content Include="nc3-3.10.0\README.md" />
+    <None Include="Dockerfile" />
+    <None Include=".dockerignore">
+      <DependentUpon>Dockerfile</DependentUpon>
+    </None>
+    <None Include="Properties\PublishProfiles\docdbtododotnet.pubxml" />
+    <None Include="Properties\PublishProfiles\todo.pubxml" />
+    <None Include="Properties\PublishProfiles\VismaTwitter.pubxml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <None Include="Scripts\jquery-2.1.1.intellisense.js" />
+    <Content Include="Scripts\jquery-2.1.1.js" />
+    <Content Include="Scripts\jquery-2.1.1.min.js" />
+    <Content Include="Scripts\jquery-2.1.1.min.map" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Item\Index.cshtml" />
+    <Content Include="Views\Item\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>43605</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:43605/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="..\packages\Microsoft.Azure.DocumentDB.1.6.1\build\Microsoft.Azure.DocumentDB.targets" Condition="Exists('..\packages\Microsoft.Azure.DocumentDB.1.6.1\build\Microsoft.Azure.DocumentDB.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Azure.DocumentDB.1.6.1\build\Microsoft.Azure.DocumentDB.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Azure.DocumentDB.1.6.1\build\Microsoft.Azure.DocumentDB.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.7.9\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.7.9\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.7.9\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.7.9\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.7.9\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets" Condition="Exists('..\packages\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.1.7.9\build\Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

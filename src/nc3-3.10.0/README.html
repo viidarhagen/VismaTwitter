@@ -1,0 +1,46 @@
+<html>
+      <head>
+        <meta charset="UTF-8">
+        <title>README.md</title>
+      </head>
+      <body>
+        <h1 id="nordic-cool-3-for-bootstrap">Nordic Cool 3 for Bootstrap</h1>
+<p>This theme goes on top of Twitter Bootstrap 3.4 and is using Nordic Cool 3 styles created by Visma.</p>
+<p>For release notes and what&#39;s new in this version, go to <a href="https://confluence.visma.com/display/VIUX/Release+notes">confluence.visma.com/display/VIUX/Release+notes</a></p>
+<h2 id="requirements">Requirements</h2>
+<ul>
+<li>The standard CSS files from Bootstrap - <code>bootstrap.min.css</code> (included in this package)</li>
+<li>Scripts:<ul>
+<li><code>bootstrap.js</code></li>
+<li>a recent version of jQuery (included as <code>jquery.js</code> in the <code>js</code> folder)</li>
+</ul>
+</li>
+</ul>
+<h2 id="what-to-include">What to include</h2>
+<h3 id="visma-additions">Visma additions</h3>
+<p>The preferred way is to use the packaged and minified version: <code>nc.min.css</code></p>
+<p>If you want access to the source files (Less format), the full package is available at <a href="https://stash.visma.com/projects/NC/repos/nc3/browse">https://stash.visma.com/projects/NC/repos/nc3/browse</a></p>
+<h3 id="js-files-to-include">JS files to include</h3>
+<ul>
+<li><code>bootstrap-tabdrop.js</code></li>
+<li><code>hideVertMenu.js</code></li>
+<li><code>visma-additional.js</code></li>
+</ul>
+<h3 id="other-files">Other files</h3>
+<ul>
+<li>The graphics (<code>img</code> folder)</li>
+</ul>
+<h3 id="fonts">Fonts</h3>
+<p>By default, fonts are loaded from Google Fonts. See the <code>start-here.html</code> file for how to do it. If you want to load fonts locally, we have included all the necessary font files to do that. You probably want to update the relevant Less files and recompile to have a clean version.</p>
+<p>In addition, the login page uses PF Beau Sans, which is Visma&#39;s corporate font. This font is loaded from <code>font.visma.com</code>, and we have also included the necessary fonts if you want to host the files locally. </p>
+<h2 id="how-to-install">How to install</h2>
+<h3 id="bower">Bower</h3>
+<p>The command below will install the latest version of Nordic Cool 3:</p>
+<pre><code>bower install https://stash.visma.com/scm/nc/nc3.git
+</code></pre><h3 id="npm">NPM</h3>
+<p>All releases of Nordic Cool 3 are available through the Visma Artifactory Repository. See the instructions here: <a href="https://confluence.visma.com/display/VIUX/Using+Common+Assets+Components+in+your+web+app">Using Common Assets Components in your web app</a></p>
+<pre><code>npm install @visma/nordic-cool --s
+</code></pre><p>Or do it manually. Copy and extract the NC3 zip package you can find on <a href="http://ux.visma.com/weblibrary/latest/">ux.visma.com</a>.</p>
+
+      </body>
+    </html>
